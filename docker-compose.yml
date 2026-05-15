@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  tests:
+    build: .
+    container_name: qa-api-tests
+    env_file:
+      - .env
+    volumes:
+      - ./allure-results:/app/allure-results
+    command: pytest --alluredir=allure-results
